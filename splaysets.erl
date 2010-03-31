@@ -1,22 +1,23 @@
 -module(splaysets).
 
--export([new/0, is_set/1, size/1, to_list/1, from_list/1]).
--export([is_element/2, add_element/2, del_element/2]).
--export([union/2, union/1, intersection/2, intersection/1]).
--export([subtract/2, is_subset/2]).
--export([fold/3, filter/2]).
-
--export([all/2, any/2, foreach/2, partition/2]).
-
+-export([new/0,is_set/1,size/1,to_list/1,from_list/1]).
+-export([is_element/2,add_element/2,del_element/2]).
+-export([union/2,union/1,intersection/2,intersection/1]).
+-export([subtract/2,is_subset/2]).
+-export([fold/3,filter/2]).
+ 
+%% Extended interface.
+-export([all/2,any/2,foreach/2,partition/2]).
+ 
+%% Deprecated interface.
+ 
 -export([new_set/0,set_to_list/1,list_to_set/1,subset/2]).
 -deprecated([{new_set,0},{set_to_list,1},{list_to_set,1},{subset,2}]).
 
--compile(export_all).
-
 -record(splay, {
-          lte={},
+          lte=empty,
           data=undefined,
-          gt={}
+          gt=empty
          }).
 
 %% new() -> Set
